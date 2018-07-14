@@ -9,15 +9,27 @@
     -->
   </header>
   <body onload="screenLoaded()" style="padding: 0; margin: 0;">
-    <svg style="width: 100%; height: 100vh; background-color: blue;" id="svg"></svg>
+    <svg style="width: 100%; height: 100vh; background-color: #4d4d4d;" id="svg"></svg>
   </body>
 </html>
 
 
 <script>
+  var svgns = "http://www.w3.org/2000/svg";
 
   var screenLoaded = () => {
-	  console.log()
+	  const svg = document.getElementById('svg');
+    var circle = createCircle(50, 250, 250, '#0000ff');
+    svg.appendChild(circle);
+  }
+
+  var createCircle = (radius, x, y, fill) => {
+    var circle =  document.createElementNS(svgns, 'circle');
+    circle.setAttributeNS(null, 'cx', x);
+    circle.setAttributeNS(null, 'cy', y);
+    circle.setAttributeNS(null, 'r', radius);
+    circle.setAttributeNS(null, 'fill', fill);
+    return circle;
   }
 
 </script>
